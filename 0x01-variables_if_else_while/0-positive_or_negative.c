@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-./betty-doc.pl file
+/* more headers goes there */
 
-./betty-doc.pl -h
+/* betty style doc for function main goes there */
 int main(void)
 {
 	int n;

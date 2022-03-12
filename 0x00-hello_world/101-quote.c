@@ -10,6 +10,6 @@ int main(void)
 
 	write(2, msg, 59);
 
-	return (0);
+	return (1);
 }
 

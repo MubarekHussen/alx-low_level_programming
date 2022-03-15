@@ -1,24 +1,20 @@
 #include "main.h"
 /**
- *print_alphabet - Lowercase alphabet Letters!.
- * 
- *main - prints 10x
- *
+ * print_alphabet_x10 - Lowercase alphabet Letters!.
+(*
  * Return: 0 on success
  */
-void print_alphabet(void)
+void print_alphabet_x10(void)
 {
-	char ch;
+	int count = 0;
 
-	for (ch = 'a'; ch <= 'z'; ch++)
-		_putchar(ch);
-	_putchar('\n');
-}
-int main(void)
-{
-	int i;
+	while (count <= 10)
+	{
+		char ch;
 
-	for (i = 0; i < 10; i++)
-		print_alphabet();
-	return (0);
+		for (ch = 'a'; ch <= 'z'; ch++)
+			_putchar(ch);
+		_putchar('\n');
+		count++;
+	}
 }

@@ -17,12 +17,13 @@ void print_to_98(int n)
 		{
 			if (x == 98)
 			{
-				printf("%d ", x);
+				printf("%d", x);
 			}
 			else
 			{
 				printf("%d, ", x);
 			}
+			printf("\n");
 		}
 	}
 	else if (n < 98)
@@ -31,12 +32,13 @@ void print_to_98(int n)
 		{
 			if (x == 98)
 			{
-				printf("%d ", x);
+				printf("%d", x);
 			}
 			else
 			{
 				printf("%d, ", x);
 			}
+			printf("\n");
 		}
 	}
 }

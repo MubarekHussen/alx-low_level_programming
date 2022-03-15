@@ -12,13 +12,17 @@ void times_table(void)
 	{
 		for (col = 0; col <= 9; col++)
 		{
-			_putchar((col * row) + '0');
-			_putchar(',');
-			_putchar(' ');
-			if (col == 0)
+			if (j == 0)
 			{
 				_putchar((col * row) + '0');
 			}
+			else
+			{
+				_putchar((col * row) + '0');
+				_putchar(' ');
+				_putchar(',');
+			}
+
 		}
 		_putchar('\n');
 	}

@@ -3,6 +3,8 @@
 /**
  * print_to_98 - count from n upto 98.
  *
+ * @n: the start of counter.
+ *
  * Return: 0 on success
  */
 void print_to_98(int n)
@@ -15,7 +17,7 @@ void print_to_98(int n)
 		{
 			if (x == 98)
 			{
-				printf("%d", x);
+				printf("%d ", x);
 			}
 			else
 			{
@@ -29,7 +31,7 @@ void print_to_98(int n)
 		{
 			if (x == 98)
 			{
-				printf("%d", x);
+				printf("%d ", x);
 			}
 			else
 			{

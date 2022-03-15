@@ -1,47 +1,29 @@
 #include "main.h"
+
 /**
- * times_table - multiplication tabel.
- *
- * Return: 0 on success
+ * times_table - multiplication table.
  */
 void times_table(void)
 {
-	int row, col;
+	int num, mult, prod;
 
-	for (row = 0; row < 10; row++)
+	for (num = 0; num <= 9; num++)
 	{
-		for (col = 0; col <= 9; col++)
+		_putchar('0');
+
+		for (mult = 1; mult <= 9; mult++)
 		{
-			if ((row * col) >= 10)
-			{
-				if (col == 9)
-				{
-					_putchar((col * row) + '0');
-					_putchar(' ');
-				}
-				else
-				{
-					_putchar((col * row) + '0');
-					_putchar(',');
-					_putchar(' ');
-				}
-			}
-			else if ((row * col) < 10)
-			{
-				if (col == 9)
-				{
-					_putchar((col * row) + '0');
-					_putchar(' ');
-					_putchar(' ');
-				}
-				else
-				{
-					_putchar((col * row) + '0');
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-				}
-			}
+			_putchar(',');
+			_putchar(' ');
+
+			prod = num * mult;
+
+			if (prod <= 9)
+				_putchar(' ');
+			else
+				_putchar((prod / 10) + '0');
+
+			_putchar((prod % 10) + '0');
 		}
 		_putchar('\n');
 	}

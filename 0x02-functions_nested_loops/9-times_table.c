@@ -12,7 +12,7 @@ void times_table(void)
 	{
 		for (col = 0; col <= 9; col++)
 		{
-			if (col == 0)
+			if (col == 9)
 			{
 				_putchar((col * row) + '0');
 			}

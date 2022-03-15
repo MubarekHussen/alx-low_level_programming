@@ -2,21 +2,23 @@
 /**
  * print_to_98 - count from n upto 98.
  *
- *@n: where the count starts
+ * @n: where the count starts
  *
  * Return: 0 on success
  */
 void print_to_98(int n)
 {
-	for (ch = 'n'; ch <= '98'; ch++)
+	int x;
+
+	for (x = 'n'; x <= 98; x++)
 	{
 		if (n == 98)
 		{
-			_putchar(ch);
+			_putchar(x + '0');
 		}
 		else
 		{
-			_putchar(ch);
+			_putchar(x + '0');
 			_putchar(',');
 			_putchar(' ');
 		}

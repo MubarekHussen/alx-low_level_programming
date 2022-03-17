@@ -2,7 +2,7 @@
 /**
  * print_numbers - print digit numbers!.
 (*
- * Return: 0 on success
+ * Return: void
  */
 void print_numbers(void)
 {

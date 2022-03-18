@@ -3,6 +3,8 @@
 /**
  * print_line - prints 1....n.
  *
+ * @n: input.
+ *
  * Return: void
  */
 

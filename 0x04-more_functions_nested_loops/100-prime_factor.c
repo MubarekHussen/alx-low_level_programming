@@ -1,30 +1,24 @@
+#include <stdlib.h>
 #include <stdio.h>
 /**
- * main - prints integer numbers.
- * 
- * Return:void
- */
+ * main - print larges prime factor of a fixed number
+ * Return: 0.
+*/
 
-int main()
+int main(void)
 {
-	long int n;
-	n=612852475143;
-	long int div=2, ans = 0, maxFact;
-	while(n!=0)
+	long i, num;
+
+	num = 612852475143;
+
+	for (i = 3; i < num; i += 2)
 	{
-		if(n % div !=0)
-			div = div + 1;
-		else
+		if (num % i == 0)
 		{
-			maxFact = n;
-			n = n / div;
-			if(n == 1)
-			{
-				printf("%d \n",maxFact);
-				ans = 1;
-				break;
-			}
+			num /= i;
 		}
 	}
-	return 0;
+	printf("%ld\n", num);
+
+	return (0);
 }

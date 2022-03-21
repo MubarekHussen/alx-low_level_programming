@@ -10,7 +10,7 @@ void puts2(char *str)
 
 	while (*(str + i))
 	{
-		if (s[i] == '.')
+		if (str[i] == '.')
 			break;
 		_putchar(*(str + i));
 		i = i + 2;

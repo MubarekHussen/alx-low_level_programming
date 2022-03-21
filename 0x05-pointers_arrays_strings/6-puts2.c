@@ -10,6 +10,8 @@ void puts2(char *str)
 
 	while (*(str + i))
 	{
+		if (str[i] == 'H')
+			break;
 		_putchar(*(str + i));
 		i = i + 2;
 	}

@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * _puts - return length of string.
+ * print_rev - return length of string.
  *
  *@str: input string.
  */
-void _puts(char *str)
+void print_rev(char *s)
 {
 	int i,len;
  

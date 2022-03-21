@@ -2,7 +2,7 @@
 /**
  * print_rev - return length of string.
  *
- *@str: input string.
+ *@s: input string.
  */
 void print_rev(char *s)
 {

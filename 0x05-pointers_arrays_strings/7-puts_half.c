@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * _puts - return length of string.
+ * puts_half - return half of string.
  *
  *@str: input string.
  */
-void _puts(char *str)
+void puts_half(char *str)
 {
 	int i = 0;
 	int n = 0;

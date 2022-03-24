@@ -46,9 +46,9 @@ char *cap_string(char *a)
 	offset = 'a' - 'A';
 	while (a[i] != '\0')
 	{
-		if (a[i] <= 'z' && a[i] >= 'a' && is_valid_separator(a[i]))
+		if (a[i + 1] <= 'z' && a[i + 1] >= 'a' && is_valid_separator(a[i]))
 		{
-			a[i] = a[i] - offset;
+			a[i + 1] = a[i + 1] - offset;
 		}
 		i++;
 	}

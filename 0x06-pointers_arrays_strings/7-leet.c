@@ -7,20 +7,20 @@
 char *leet(char *a)
 {
 	int i = 0, j = 0;
+	char leet_ch[] = {'a', 'e', 'o', 't', 'l'};
+	char leet_index[] = {4, 3, 0, 7, 1};
 
-	char leet_ch[10] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
-	char leet_index[10] = {4, 4, 3, 3, 0, 0, 7, 7, 1, 1};
-
-	for (i = 0; a[i]; i++)
+	while (a[i])
 	{
-		for (j = 0; j < 10; j++)
+		for (j = 0; j < 5; j++)
 		{
-			if (a[i] == leet_ch[j])
+			if (a[i] == leet_ch[j] || a[i] - 32 == leet_ch[j])
 			{
-				a[i] = leet_index[j];
+				a[i] = leet_index[j] + '0';
 				break;
 			}
 		}
+		i++;
 	}
 	return (a);
 }

@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * rev_string - return reverse.
+ * reverse_array - return reverse.
  *@n: size tobe reversed.
  *@a: input array.
  */
@@ -8,7 +8,7 @@ void reverse_array(int *a, int n)
 {
 	int i = 0, j = 0, temp;
 
-	i = n -1;
+	i = n - 1;
 	while (j < i)
 	{
 		temp = a[i];

@@ -50,6 +50,10 @@ char *cap_string(char *a)
 		{
 			a[i + 1] = a[i + 1] - offset;
 		}
+		if (i == 0 && a[i] <= 'z' && a[i] >= 'a')
+		{
+			a[i] = a[i] - offset;
+		}
 		i++;
 	}
 	return (a);

@@ -1,45 +1,45 @@
 #include "main.h"
 /**
- * print_number - print out a number using printchar.
- * @n: the number you want to print using putchar
- * Return: 0.
+ * _atoi -  convert a string to an integer.
+ * @s: the string to be converted.
+ * Return: void.
  */
-void print_number(int n)
+int _atoi(char *s)
 {
-	int  temp, temp2, cnt, div, result, i;
+	int num, i, is_num, one;
 
-	cnt = 0;
-	div = 1;
-	if (n < 0)
+	num = is_num = 0;
+	one = 1;
+	for (i = 0; s[i] != '\0'; ++i)
 	{
-		_putchar('-');
-	}
-	if (n == 0)
-	{
-		_putchar('0');
-	}
-	else
-	{
-		temp = n;
-		while (temp)
+		if ((s[i] < '0' || s[i] > '9') && is_num == 1)
 		{
-			temp /= 10;
-			++cnt;
+			break;
 		}
-		temp2 = cnt;
-		while (temp2 > 1)
+		if (s[i] == '-' && is_num == 0)
 		{
-			div *= 10;
-			--temp2;
+			one *= -1;
 		}
-		for (i = 0; i < cnt; ++i)
+		if (s[i] >= '0' && s[i] <= '9')
 		{
-			result = n / div;
-			if (result < 0)
-				result *= -1;
-			_putchar(result + '0');
-			n %= div;
-			div /= 10;
+			if (is_num == 0)
+			{
+				is_num = 1;
+				num += s[i] - '0';
+				if (one < 0)
+					num *= one;
+			}
+			else
+			{
+				num *= 10;
+				if (num < 0)
+					num -= s[i] - '0';
+				else
+					num += s[i] - '0';
+			}
 		}
 	}
+	if (is_num == 0)
+		return (0);
+	return (num);
 }

@@ -1,30 +1,45 @@
-#include <main.h>
+#include "main.h"
 /**
- * _atoi - convert a string to an integer
- * @s: string to convert
- * Return: converted integer
+ * print_number - print out a number using printchar.
+ * @n: the number you want to print using putchar
+ * Return: 0.
  */
-int _atoi(char *s)
+void print_number(int n)
 {
-	char sign = 0;
-	unsigned int num = 0;
+	int  temp, temp2, cnt, div, result, i;
 
-	while (!(*s >= '0' && *s <= '9'))
+	cnt = 0;
+	div = 1;
+	if (n < 0)
 	{
-		if (*s == '-')
-			sign = !sign;
-		s++;
+		_putchar('-');
 	}
-	while (*s >= '0' && *s <= '9')
+	if (n == 0)
 	{
-		num = num * 10 + (*s - '0');
-		s++;
-		if (!sign && num >= INT_MAX)
-			return (INT_MAX);
-		else if (sign && num > INT_MAX)
-			return (INT_MIN);
+		_putchar('0');
 	}
-	if (sign)
-		return (-num);
-	return (num);
+	else
+	{
+		temp = n;
+		while (temp)
+		{
+			temp /= 10;
+			++cnt;
+		}
+		temp2 = cnt;
+		while (temp2 > 1)
+		{
+			div *= 10;
+			--temp2;
+		}
+		for (i = 0; i < cnt; ++i)
+		{
+			result = n / div;
+			if (result < 0)
+				result *= -1;
+			_putchar(result + '0');
+			n %= div;
+			div /= 10;
+		}
+	}
 }

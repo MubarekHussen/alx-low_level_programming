@@ -1,7 +1,6 @@
 #include "main.h"
 /**
  * _memset - copys chracter 'b' to the character that is derefferenced  by 's'.
- *@i: index that changes the char.
  *@n: maximum length to be changed.
  *@b: the constant byte used to chnge the chracter.
  *@s: that references the character.

@@ -1,16 +1,17 @@
 #include "main.h"
 /**
- * _memset - copys chracter 'b' to the character that is derefferenced  by 's'.
- *@n: maximum length to be changed.
- *@b: the constant byte used to chnge the chracter.
- *@s: that references the character.
- *Return: difference.
+ * _memset - fills memory with a constant byte
+ * @s: empty string
+ * @b:  is the constant byte
+ * @n: number of bytes to fill.
+ *
+ * Return: a pointer to memory area.
  */
 char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int i;
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < n; ++i)
 	{
 		s[i] = b;
 	}

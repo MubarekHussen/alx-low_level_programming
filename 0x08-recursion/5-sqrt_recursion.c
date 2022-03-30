@@ -7,7 +7,7 @@
  *Return: square root.
  */
 
-int sqrt(int n, int j)
+int sq(int n, int j)
 {
 	if (j < n/2)
 	{
@@ -15,7 +15,7 @@ int sqrt(int n, int j)
 		{
 			return (j);
 		}
-		return (sqrt(n,j + 1));
+		return (sq(n,j + 1));
 	}
 	return (-1);
 }

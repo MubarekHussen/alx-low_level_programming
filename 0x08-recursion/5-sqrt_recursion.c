@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * sqrt - calculate sqrt.
+ * sq - calculate sqrt.
  *@n: input nummber.
  *@j: start from 0.
  *
@@ -9,13 +9,21 @@
 
 int sq(int n, int j)
 {
-	if (j < n/2)
+	if (n == 1)
 	{
-		if (j * j == n)
+		return (1);
+	}
+	else
+	{
+	
+		if (j < n / 2)
+		{
+			if (j * j == n)
 		{
 			return (j);
 		}
-		return (sq(n,j + 1));
+		return (sq(n, j + 1));
+		}
 	}
 	return (-1);
 }
@@ -28,5 +36,5 @@ int sq(int n, int j)
  */
 int _sqrt_recursion(int n)
 {
-	return (sq(n,0));
+	return (sq(n, 0));
 }

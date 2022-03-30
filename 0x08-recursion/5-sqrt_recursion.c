@@ -15,14 +15,13 @@ int sq(int n, int j)
 	}
 	else
 	{
-	
 		if (j < n / 2)
 		{
 			if (j * j == n)
-		{
-			return (j);
-		}
-		return (sq(n, j + 1));
+			{
+				return (j);
+			}
+			return (sq(n, j + 1));
 		}
 	}
 	return (-1);

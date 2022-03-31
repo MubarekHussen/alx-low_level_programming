@@ -23,18 +23,15 @@ int st_len(char *s)
  */
 int check(char *s, int l, int r)
 {
-	if (l <= r)
-	{
-		if (s[l] != s[r])
-		{
-			return (0);
-		}
-		check(s, l + 1, r - 1);
-	}
-	else
+	if (l >= r)
 	{
 		return (1);
 	}
+	if (s[l] != s[r])
+	{
+		return (0);
+	}
+	return (check(s, l + 1, r - 1));
 }
 
 /**
@@ -49,3 +46,4 @@ int is_palindrome(char *s)
 
 	return (check(s, 0, r));
 }
+

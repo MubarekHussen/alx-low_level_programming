@@ -11,7 +11,7 @@
 
 int str_len(char *s1, char *s2)
 {
-	int i, j, tot;
+	unsigned int i, j, tot;
 
 	for (i = 0; s1[i]; i++)
 		;

@@ -19,9 +19,9 @@ char *create_array(unsigned int size, char c)
 	{
 		ch_array[i] = c;
 	}
-	if (size == 0)
+	if (size == 0 || ch_array == NULL)
 	{
 		return (0);
 	}
-	return ch_array;
+	return (ch_array);
 }

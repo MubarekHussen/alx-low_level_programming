@@ -1,55 +1,41 @@
-#include <stdlib.h>
-#include "main.h"
-/**
- * _strlen - finds length of string
- * @str: the string to find the length of.
- * Return: length.
- */
-int _strlen(char *str)
-{
-	int i;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		++i;
-	}
-	return (i);
-}
+#include "main.h"
+#include <stdlib.h>
+
 /**
  * argstostr - concatenates all the arguments of your program.
- * @ac: number of arguments.
- * @av: array of arguments.
- * Return: pointer to string or NULL if ac or av == NULL.
+ * @ac: number of arguments
+ * @av: double pointer to arguments
+ *
+ * Return:pointer to new string, or NULL if error
  */
 char *argstostr(int ac, char **av)
 {
-	int i, j, k, len;
-	char *arr;
+	int i, j, k = 0, n = 0;
+	char *s;
 
-	if (ac == 0 || av == NULL)
+	if (ac <= 0 || av == NULL)
 		return (NULL);
-
-	for (i = 0; i < ac; ++i)
+	for (i = 0; i < ac; i++)
 	{
-		len += _strlen(av[i]) + 1;
+		for (j = 0; av[i][j]; j++)
+			n++;
+		n++;
 	}
-
-	arr = (char *) malloc(len * sizeof(char) + 1);
-
-	if (arr == NULL)
+	n++;
+	s = malloc(n * sizeof(char));
+	if (s == NULL)
 		return (NULL);
-
-	for (i = 0, k = 0; i < ac; ++i)
+	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j] != '\0'; ++j, ++k)
+		for (j = 0; av[i][j]; j++)
 		{
-			arr[k] = av[i][j];
+			s[k] = av[i][j];
+			k++;
 		}
-		arr[k] = '\n';
-		++k;
+		s[k] = '\n';
+		k++;
 	}
-	++k;
-	arr[k] = '\0';
-	return (arr);
+	s[k] = '\0';
+	return (s);
 }

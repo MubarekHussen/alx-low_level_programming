@@ -20,6 +20,8 @@ int str_len(char *s1, char *s2, unsigned int n)
 	for (j = 0; s2[j]; j++)
 		;
 	j++;
+	if (n >= j)
+		n = j;
 	tot = i + n;
 	return (tot);
 }

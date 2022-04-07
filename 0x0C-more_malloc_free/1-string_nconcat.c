@@ -25,7 +25,7 @@ int str_len(char *s1, char *s2, unsigned int n)
 }
 
 /**
- * str_concat - creates a concatination string.
+ * string_nconcat - creates a concatination string.
  * @s1: input string1.
  * @s2: input string2.
  * @n: length to be concatenated.

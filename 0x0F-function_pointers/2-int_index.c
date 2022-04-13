@@ -25,6 +25,8 @@ int int_index(int *array, int size, int (*cmp)(int))
 				if (temp)
 					break;
 			}
+			if (temp == 0)
+				return (-1);
 			return (i);
 		}
 	}

@@ -1,48 +1,63 @@
 #include "variadic_functions.h"
+#include <stdarg.h>
+#include <stdio.h>
 /**
- * print_all - a function that prints anything.
- * @format: gives you the format of the elements to be printed as well as junk
- * values.
- * Return: Always 0.
- */
+  * p_char - prints characters
+  * @c: character to print
+  */
+void p_char(va_list c)
+{
+	printf("%c", va_arg(c, int));
+}
+/**
+  * p_int - prints integers
+  * @i: integer to print
+  */
+void p_int(va_list i)
+{
+	printf("%d", va_arg(i, int));
+}
+/**
+  * p_float - prints floats
+  * @f: float to print
+  */
+void p_float(va_list f)
+{
+	printf("%f", va_arg(f, double));
+}
+/**
+  * p_string - prints strings
+  * @s: string to print
+  */
+void p_string(va_list s)
+{
+	char *string;
+
+	string = va_arg(s, char *);
+	if (string == NULL)
+		string = "(nil)";
+	printf("%s", string);
+}
+/**
+  * print_all - prints any argument passed into it
+  * @format: formats symbols in order
+  */
 void print_all(const char * const format, ...)
 {
-	int flag, temp, i, arg_count;
-	va_list ap;
-	char *s;
+	unsigned int i, j;
+	char *separator;
+	va_list argp;
+	v_types valid_types[] = {
+		{"c", p_char},
+		{"i", p_int},
+		{"f", p_float},
+		{"s", p_string}
+	};
 
-	va_start(ap, format);
-	i = temp = arg_count = 0;
-
-	while (format && format[i] != '\0')
+	i = j = 0;
+	separator = "";
+	va_start(argp, format);
+	while (format && format[i])
 	{
-		flag = 1;
-		switch (format[i++])
-		{
-		case 's':              /* string */
-			s = va_arg(ap, char *);
-			if (s == NULL)
-			{
-				printf("(nil)");
-				++temp; break;
-			}
-			printf("%s", s);
-			++temp; break;
-		case 'i':              /* int */
-			printf("%d", va_arg(ap, int));
-			++temp; break;
-		case 'c':              /* char */
-			printf("%c", (char) va_arg(ap, int));
-			++temp; break;
-		case 'f':
-			printf("%f", va_arg(ap, double));
-			++temp; break;
-		default:
-			flag = 0; break;
-		}
-		if (flag == 1 && format[i] != '\0')
-			printf(", ");
-	}
-	printf("\n");
-	va_end(ap);
-}
+		j = 0;
+

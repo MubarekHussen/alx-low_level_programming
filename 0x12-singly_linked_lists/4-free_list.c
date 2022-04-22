@@ -1,23 +1,22 @@
-#include <stdlib.h>
 #include "lists.h"
+#include <stdlib.h>
 
 /**
  * free_list - frees a list_t list
- * @head: pointer to the start of the list
- *
- * Return: void
+ * @head: head node
  */
 void free_list(list_t *head)
 {
-	list_t *current, *next;
+	list_t *place_holder;
 
-	current = head;
-	while (current != NULL)
+	while (head)
 	{
-		next = current->next;
-		free(current->str);
-		free(current);
-		current = next;
-	}
+		if (head->str)
+			free(head->str);
 
+		place_holder = head;
+		head = head->next;
+
+		free(place_holder);
+	}
 }

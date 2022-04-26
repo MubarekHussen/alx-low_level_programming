@@ -3,18 +3,6 @@
 #include <stdlib.h>
 
 /**
- * count_node - to traverse the list.
- * @head: to refer the head.
- * Return: head.
- */
-
-listint_t *count_node(listint_t *head)
-{
-	head = head->next;
-	return (head);
-}
-
-/**
  * get_nodeint_at_index - gets the node at the index.
  * @head: to refer the head.
  * @index: required to get the node.
@@ -23,16 +11,17 @@ listint_t *count_node(listint_t *head)
 
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
+	listint_t *temp;
 	unsigned int i;
 
 	if (head == NULL)
 		return (NULL);
-
-	for (i = 1; i <= index; i++)
+	temp = head;
+	for (i = 0; temp->next != NULL && i < index; ++i)
 	{
-		count_node(head);
+		temp = temp->next;
 	}
-	if (head == NULL)
-		return (NULL);
-	return (head);
+	if (i == index)
+		return (temp);
+	return (NULL);
 }

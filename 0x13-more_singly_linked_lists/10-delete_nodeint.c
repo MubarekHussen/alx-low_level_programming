@@ -26,12 +26,12 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	}
 	for (i = 0; i < index - 1; i++)
 	{
+		if (temp->next == NULL)
+			return (-1);
 		temp = temp->next;
 	}
-	if (i != index)
-		return (-1);
 	del = temp->next;
-	temp->next = temp->next->next;
+	temp->next = del->next;
 	del->next = NULL;
 	free(del);
 	return (1);

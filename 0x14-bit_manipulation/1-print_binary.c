@@ -1,9 +1,11 @@
-#include "holberton.h"
+#include "main.h"
+
 /**
  * recursive_print - prints the elements out backwards.
  * @n: is an usinged long int.
  * Return: nothing.
  */
+
 void recursive_print(unsigned long int n)
 {
 	if (n == 0)
@@ -14,11 +16,13 @@ void recursive_print(unsigned long int n)
 	else if ((n & 1) == 0)
 		_putchar('0');
 }
+
 /**
  * print_binary - prints the binary representation of a number.
  * @n: is an usinged long int.
  * Return: nothing.
  */
+
 void print_binary(unsigned long int n)
 {
 	if (n == 0)

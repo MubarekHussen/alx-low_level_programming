@@ -1,21 +1,30 @@
-#include "main.h"
-
+#include "holberton.h"
 /**
- * print_binary - converts a decimal number to binary
- * @n: integer to convert
+ * recursive_print - prints the elements out backwards.
+ * @n: is an usinged long int.
+ * Return: nothing.
  */
-
+void recursive_print(unsigned long int n)
+{
+	if (n == 0)
+		return;
+	recursive_print(n >> 1);
+	if ((n & 1) == 1)
+		_putchar('1');
+	else if ((n & 1) == 0)
+		_putchar('0');
+}
+/**
+ * print_binary - prints the binary representation of a number.
+ * @n: is an usinged long int.
+ * Return: nothing.
+ */
 void print_binary(unsigned long int n)
 {
-	int i, flag;
-
 	if (n == 0)
 		_putchar('0');
-	for (flag = 0, i = sizeof(n) * 8 - 1; i >= 0; i--)
+	else
 	{
-		if ((n >> i) & 1)
-		flag = 1;
-		if (flag == 1)
-			((n >> i) & 1) ? _putchar('1') : _putchar('0');
+		recursive_print(n);
 	}
 }

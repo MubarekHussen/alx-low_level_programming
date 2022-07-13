@@ -1,63 +1,54 @@
 #include "hash_tables.h"
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * make_hash_node - creates a new hash node
- * @key: key for the node
- * @value: for the node
- *
- * Return: the new node, or NULL on failure
- */
-hash_node_t *make_hash_node(const char *key, const char *value)
-{
-	hash_node_t *node;
-
-	node = malloc(sizeof(hash_node_t));
-	if (node == NULL)
-		return (NULL);
-	node->key = strdup(key);
-	if (node->key == NULL)
-	{
-		free(node);
-		return (NULL);
-	}
-	node->value = strdup(value);
-	if (node->value == NULL)
-	{
-		free(node->key);
-		free(node);
-		return (NULL);
-	}
-	node->next = NULL;
-	return (node);
-}
-
-
-/**
- * hash_table_set - sets a key to a value in the hash table
- * @ht: hash table to add elemt to
- * @key: key for the data
- * @value: data to store
- *
- * Return: 1 if successful, 0 otherwise
+ * hash_table_set - Adds element to the hash table
+ * @ht: hashtable
+ * @key: Key
+ * @value: Value
+ * Return: 1 or 0
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
+	hash_node_t *node, *tmp;
 	unsigned long int index;
-	hash_node_t *hash_node, *tmp;
-	char *new_value;
+	char *val_copy;
 
-	if (ht == NULL || ht->array == NULL || ht->size == 0 ||
-	    key == NULL || strlen(key) == 0 || value == NULL)
+	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
+	{
+		return (0);
+	}
+
+	val_copy = strdup(value);
+	if (val_copy == NULL)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 	tmp = ht->array[index];
 	while (tmp != NULL)
 	{
-		if (strcmp(tmp->key, key) == 0)
+		if (strcmp(ht->array[index]->key, key) == 0)
 		{
-			new_value = strdup(value);
-			if (new_value == NULL)
-				return (0);
-			free(tmp->value);
-			tmp->value = new_value;
-
+			free(ht->array[index]->value);
+			ht->array[index]->value = val_copy;
+			return (1);
+		}
+		tmp = tmp->next;
+	}
+	node = malloc(sizeof(hash_node_t));
+	if (node == NULL)
+	{
+		free(val_copy);
+		return (0);
+	}
+	node->key = strdup(key);
+	if (node->key == NULL)
+	{
+		free(node);
+		return (0);
+	}
+	node->value = val_copy;
+	node->next = ht->array[index];
+	ht->array[index] = node;
+	return (1);
+}
